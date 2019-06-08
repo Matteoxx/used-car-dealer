@@ -1,3 +1,28 @@
-<p>
-  buy works!
-</p>
+<div class="row">
+  <div class="col">
+    <app-filter-cars (carsChanged)="carsChanged($event)"></app-filter-cars>
+  </div>
+</div>
+<div class="row">
+  <div
+    class="col-sm-6 col-md-5 offset-md-1 col-lg-4 offset-lg-0"
+    *ngFor="let car of cars"
+  >
+    <div class="card my-2">
+      <img
+        class="card-img-top"
+        style="height: 16rem"
+        [src]="car.zdjecie"
+        alt="Card image cap"
+      />
+      <div class="card-body text-center">
+        <p class="card-text">{{ car.nazwa_marki }} {{ car.nazwa_modelu }}</p>
+      </div>
+      <div class="card-footer text-muted d-flex justify-content-around">
+        <span>{{ car.rok_produkcji }}</span>
+        <span>{{ car.cena }}</span>
+        <span>{{ car.przebieg }} km</span>
+      </div>
+    </div>
+  </div>
+</div>
