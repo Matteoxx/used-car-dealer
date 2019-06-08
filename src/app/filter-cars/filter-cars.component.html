@@ -1,0 +1,254 @@
+<form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+  <div class="form-row justify-content-center">
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <select
+          id="make"
+          class="form-control"
+          formControlName="make"
+          (change)="onMakeChange(filterForm.get('make').value)"
+        >
+          <option hidden value="" disabled selected>Marka </option>
+          <option [value]="makeOption" *ngFor="let makeOption of makeOptions">
+            {{ makeOption }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <select
+          id="model"
+          class="form-control"
+          formControlName="model"
+          [disabled]="!filterForm.get('make').value"
+        >
+          <option hidden value="" disabled selected>Model </option>
+
+          <option
+            [value]="modelOption"
+            *ngFor="let modelOption of modelOptions"
+            >{{ modelOption }}</option
+          >
+        </select>
+      </div>
+    </div>
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <input
+          min="0"
+          step="1000"
+          type="number"
+          id="priceFrom"
+          class="form-control"
+          formControlName="priceFrom"
+          placeholder="Cena od"
+        />
+      </div>
+    </div>
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <input
+          min="0"
+          step="1000"
+          type="number"
+          id="priceTo"
+          class="form-control"
+          formControlName="priceTo"
+          placeholder="Cena do"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="form-row justify-content-center">
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <input
+          type="number"
+          min="1990"
+          max="2019"
+          id="productionYearFrom"
+          class="form-control"
+          formControlName="productionYearFrom"
+          placeholder="Rok prod. od"
+        />
+      </div>
+    </div>
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <input
+          type="number"
+          min="1990"
+          max="2019"
+          id="productionYearTo"
+          class="form-control"
+          formControlName="productionYearTo"
+          placeholder="Rok prod. do"
+        />
+      </div>
+    </div>
+
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <input
+          min="0"
+          step="1000"
+          type="number"
+          id="mileageFrom"
+          class="form-control"
+          formControlName="mileageFrom"
+          placeholder="Przebieg od"
+        />
+      </div>
+    </div>
+
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <input
+          min="0"
+          step="1000"
+          type="number"
+          id="mileageTo"
+          class="form-control"
+          formControlName="mileageTo"
+          placeholder="Przebieg do"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row justify-content-center">
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <select id="body" class="form-control" formControlName="body">
+          <option hidden value="" disabled selected>Nadwozie</option>
+          <option [value]="bodyOption" *ngFor="let bodyOption of bodyOptions">{{
+            bodyOption
+          }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <select
+          id="engineSizeFrom"
+          class="form-control"
+          formControlName="engineSizeFrom"
+        >
+          <option hidden value="" disabled selected>Pojemność od</option>
+          <option
+            [value]="engineSizeOption"
+            *ngFor="let engineSizeOption of engineSizeOptions"
+            >{{ engineSizeOption }}</option
+          >
+        </select>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <select
+          id="engineSizeTo"
+          class="form-control"
+          formControlName="engineSizeTo"
+        >
+          <option hidden value="" disabled selected>Pojemność do</option>
+
+          <option
+            [value]="engineSizeOption"
+            *ngFor="let engineSizeOption of engineSizeOptions"
+            >{{ engineSizeOption }}</option
+          >
+        </select>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <select id="fuelType" class="form-control" formControlName="fuelType">
+          <option hidden value="" disabled selected>Rodzaj paliwa</option>
+          <option
+            [value]="fuelTypeOption"
+            *ngFor="let fuelTypeOption of fuelTypeOptions"
+            >{{ fuelTypeOption }}</option
+          >
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row justify-content-center">
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <select id="doorFrom" class="form-control" formControlName="doorFrom">
+          <option hidden value="" disabled selected>Liczba drzwi od</option>
+          <option [value]="doorOption" *ngFor="let doorOption of doorOptions">{{
+            doorOption
+          }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <select id="doorTo" class="form-control" formControlName="doorTo">
+          <option hidden value="" disabled selected>Liczba drzwi do</option>
+          <option [value]="doorOption" *ngFor="let doorOption of doorOptions">{{
+            doorOption
+          }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <select id="gearbox" class="form-control" formControlName="gearbox">
+          <option hidden value="" disabled selected>Skrzynia biegów</option>
+          <option
+            [value]="gearboxOption"
+            *ngFor="let gearboxOption of gearboxOptions"
+            >{{ gearboxOption }}</option
+          >
+        </select>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <select id="colour" class="form-control" formControlName="colour">
+          <option hidden value="" disabled selected>Kolor</option>
+          <option
+            [value]="colourOption"
+            *ngFor="let colourOption of colourOptions"
+            >{{ colourOption }}</option
+          >
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row justify-content-center">
+    <div class="col-6 col-md-2">
+      <div class="form-group">
+        <select
+          id="accidentFree"
+          class="form-control"
+          formControlName="accidentFree"
+        >
+          <option hidden value="" disabled selected>Bezwypadkowy</option>
+          <option
+            [value]="accidentFreeOption"
+            *ngFor="let accidentFreeOption of accidentFreeOptions"
+          >
+            {{ accidentFreeOption }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-2">
+      <button type="submit" class="btn btn-primary btn-block">Szukaj</button>
+    </div>
+  </div>
+</form>
