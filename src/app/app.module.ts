@@ -11,6 +11,7 @@ import { SellComponent } from "./sell/sell.component";
 import { BuyComponent } from "./buy/buy.component";
 import { FilterCarsComponent } from "./filter-cars/filter-cars.component";
 import { CarsService } from "./cars.service";
+import { CarDetailsComponent } from './buy/car-details/car-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CarsService } from "./cars.service";
     HomeComponent,
     SellComponent,
     BuyComponent,
-    FilterCarsComponent
+    FilterCarsComponent,
+    CarDetailsComponent
   ],
   imports: [
     BrowserModule,

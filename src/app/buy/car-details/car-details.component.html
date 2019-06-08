@@ -1,0 +1,163 @@
+<div class="row">
+  <div class="col d-flex flex-row justify-content-between">
+    <h3>
+      {{ carDetails.nazwa_marki }} {{ carDetails.nazwa_modelu }},
+      {{ carDetails.rok_produkcji }}
+    </h3>
+    <h3>{{ carDetails.cena }} PLN</h3>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col mx-auto">
+    <img [src]="carDetails.zdjecie" alt="" class="img-fluid" />
+  </div>
+</div>
+<hr />
+
+<div class="row my-2">
+  <div class="col">
+    <h5>Parametry techniczne:</h5>
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <td class="font-weight-bold">Rok produkcji</td>
+          <td>{{ carDetails.rok_produkcji }}</td>
+          <td class="font-weight-bold">Nadwozie</td>
+          <td>{{ carDetails.nadwozie }}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">Przebieg</td>
+          <td>{{ carDetails.przebieg }} km</td>
+          <td class="font-weight-bold">Paliwo</td>
+          <td>{{ carDetails.rodzaj_paliwa }}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">Skrzynia biegów</td>
+          <td>{{ carDetails.skrzynia_biegow }}</td>
+          <td class="font-weight-bold">Liczba KM</td>
+          <td>{{ carDetails.moc }} KM</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">Kolor</td>
+          <td>{{ carDetails.kolor }}</td>
+          <td class="font-weight-bold">Ilość drzwi</td>
+          <td>{{ carDetails.ilosc_drzwi }}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">Pojemność skokowa</td>
+          <td>{{ carDetails.pojemnosc_silnika }} cm<sup>3</sup></td>
+          <td class="font-weight-bold">Powypadkowy</td>
+          <td>{{ carDetails.powypadkowy }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#reservationModal"
+    >
+      Niewiążąca rezerwacja
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#buyModal"
+      class="btn btn-success mx-1"
+    >
+      Kup
+    </button>
+  </div>
+</div>
+
+<!-- Modal rezerwacja -->
+<div
+  class="modal fade"
+  id="reservationModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Rezerwacja samochodu</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Czy na pewno chcesz zarezerwować ten samochód? Rezerwacja będzie ważna 7
+        dni.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Innym razem
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="onCarReserve()"
+        >
+          Rezerwuj
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal kupno samochodu -->
+<div
+  class="modal fade"
+  id="buyModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Zakup samochodu</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Czy na pewno chcesz kupić ten samochód?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Innym razem
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="onCarBuy()"
+        >
+          Kup
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
