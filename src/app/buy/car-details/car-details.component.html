@@ -55,7 +55,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" *ngIf="userData">
   <div class="col">
     <button
       type="button"
@@ -74,6 +74,15 @@
     >
       Kup
     </button>
+  </div>
+</div>
+
+<div class="row" *ngIf="!userData">
+  <div class="col">
+    <p>
+      Aby móc dokonać zakupu lub rezerwacji
+      <a routerLink="/logowanie">zaloguj się</a>
+    </p>
   </div>
 </div>
 
