@@ -41,18 +41,28 @@
         <a class="nav-link" routerLink="/sprzedaj">Sprzedaj</a>
       </li>
     </ul>
-    <i
-      class="fas fa-search nav-link"
-      style="color: white; font-size: 1.5rem;"
-    ></i>
-    <a
+    <!-- <a
       class="nav-link text-white"
-      routerLink="/login"
+      routerLink="/logowanie"
       style="cursor: pointer; padding: 0;"
       data-toggle="collapse"
-      data-target=".navbar-collapse.show"
+      data-target=".navbar-collapse.show" 
+    > -->
+    <a
+      class="nav-link text-white"
+      routerLink="/logowanie"
+      style="cursor: pointer; padding: 0;"
+      *ngIf="!userData"
     >
       Zaloguj się
+    </a>
+    <a
+      class="nav-link text-white"
+      (click)="onLogout()"
+      style="cursor: pointer; padding: 0;"
+      *ngIf="userData"
+    >
+      Wyloguj się
     </a>
   </div>
 </nav>

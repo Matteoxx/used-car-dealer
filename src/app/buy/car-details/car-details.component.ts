@@ -15,14 +15,15 @@ export class CarDetailsComponent implements OnInit {
   ) {}
 
   carDetails = {};
-  carId: number;
+  carId = 0;
+
+  userData = false;
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.carId = +params["id"];
       this.carsService.getAvailableCarsById(this.carId).subscribe(
         (carDetails: {}) => {
-          console.log(carDetails);
           this.carDetails = carDetails;
         },
         err => {
@@ -30,11 +31,14 @@ export class CarDetailsComponent implements OnInit {
         }
       );
     });
+
+    if (JSON.parse(localStorage.getItem("userData"))) {
+      this.userData = true;
+    }
   }
 
   onCarReserve() {
-    console.log("rezerwacja");
-    let userId = 0;
+    let userId = JSON.parse(localStorage.getItem("userData")).userId;
     this.carsService.reserveCar(this.carId, userId).subscribe(
       (resp: Response) => {
         console.log(resp);
@@ -43,12 +47,11 @@ export class CarDetailsComponent implements OnInit {
         console.log(err);
       }
     );
-    this.router.navigate(["buy"], { relativeTo: this.route });
+    this.router.navigate(["/"]);
   }
 
   onCarBuy() {
-    console.log("zakup");
-    let userId = 0;
+    let userId = JSON.parse(localStorage.getItem("userData")).userId;
     this.carsService.buyCar(this.carId, userId).subscribe(
       (resp: Response) => {
         console.log(resp);
@@ -57,6 +60,6 @@ export class CarDetailsComponent implements OnInit {
         console.log(err);
       }
     );
-    this.router.navigate(["buy"], { relativeTo: this.route });
+    this.router.navigate(["/"]);
   }
 }

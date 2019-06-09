@@ -32,14 +32,14 @@ export class CarsService {
   buyCar(carId: number, userId: number) {
     return this.http.post(
       `http://localhost:5000/api/cars/${carId}/buy`,
-      { id_klienta: userId, id_samochodu: carId },
+      { userId: userId, carId: carId },
       httpOptions
     );
   }
 
   reserveCar(carId: number, userId: number) {
     return this.http.post(
-      `http://localhost:5000/api/cars/${carId}/buy`,
+      `http://localhost:5000/api/cars/${carId}/reserve`,
       { id_klienta: userId, id_samochodu: carId },
       httpOptions
     );

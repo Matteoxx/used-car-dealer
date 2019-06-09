@@ -11,7 +11,9 @@ import { SellComponent } from "./sell/sell.component";
 import { BuyComponent } from "./buy/buy.component";
 import { FilterCarsComponent } from "./filter-cars/filter-cars.component";
 import { CarsService } from "./cars.service";
-import { CarDetailsComponent } from './buy/car-details/car-details.component';
+import { CarDetailsComponent } from "./buy/car-details/car-details.component";
+import { AuthService } from "./auth.service";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { CarDetailsComponent } from './buy/car-details/car-details.component';
     SellComponent,
     BuyComponent,
     FilterCarsComponent,
-    CarDetailsComponent
+    CarDetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import { CarDetailsComponent } from './buy/car-details/car-details.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [CarsService],
+  providers: [CarsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

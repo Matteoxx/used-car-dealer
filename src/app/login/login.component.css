@@ -1,0 +1,25 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1%;
+}
+
+form input {
+  margin: 2%;
+}
+
+.formHeader {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.dropdown-menu {
+  right: 10px;
+  top: initial;
+  left: initial;
+}
